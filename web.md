@@ -1,7 +1,7 @@
-# Unable to setup database, solving from online instance
+# SQLI
 
-#LESS-1: Error based - single quote - string
-		#Reference wiki.bi0s.in
+## LESS-1: Error based - single quote - string
+*Reference wiki.bi0s.in*
 		
 here we are asked to input id as parameter with numeric value so when we give ?id=10 we get username and password, To break the query we try giving special characters like \,' ,so when we give \ as input we get an error  ''\' LIMIT 0,1' saying that the syntax of query is wrong 
 
@@ -35,7 +35,7 @@ now we have the attributes id,username,password now to dump the data we give
 
 which will give all the usernames and passwords
 
-#LESS-3: Error-based-single quotes with twist
+## LESS-3: Error-based-single quotes with twist
 		
 this is also similar to less-1,when we give an integer we get username and password,here the difference is when we try to break the query using \ or ' 
 we get
@@ -56,7 +56,7 @@ to get attribute names(username,id,password)
 ?id=-1') union select 1,group_concat(username),group_concat(password) from users -- - 
 to get values
 
-#LESS-4:Error-based-Double quotes
+## LESS-4:Error-based-Double quotes
 This is also a very similar one to less-1 and less-3 since the database and tables are the same, only difference is breaking the query
 so when we give \ as input we get
  "\") LIMIT 0,1
@@ -74,5 +74,6 @@ to get attribute names
 
 ?id=-1") union select 1,group_concat(username),group_concat(password) from users -- - 
 to get attribute names(username,id,password)
+
 
 
